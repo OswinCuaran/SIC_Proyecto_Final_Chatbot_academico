@@ -1,0 +1,14 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# ChromaDB
+backend/chroma_db/
+
+# Variables de entorno
+.env
+
+# Archivos del sistema
+.DS_Store
