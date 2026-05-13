@@ -1,6 +1,4 @@
-/* ============================================
-   CHATBOT ACADÉMICO UNAL - ESTILO CIBERPUNK
-   ============================================ */
+/* CHATBOT ACADÉMICO UNAL - ESTILO */
 
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
 
@@ -46,7 +44,7 @@ body {
     background-size: 50px 50px;
 }
 
-/* ============ CONTENEDOR PRINCIPAL ============ */
+/* CONTENEDOR PRINCIPAL  */
 .contenedor-principal {
     display: flex;
     flex-direction: column;
@@ -56,7 +54,7 @@ body {
     position: relative;
 }
 
-/* ============ HEADER ============ */
+/*  HEADER  */
 .header {
     background: linear-gradient(135deg, var(--negro-claro), var(--panel));
     border-bottom: 1px solid var(--borde);
@@ -129,7 +127,7 @@ body {
     font-family: 'Share Tech Mono', monospace;
 }
 
-/* ============ ESTADO BADGE ============ */
+/*  ESTADO BADGE  */
 .estado-badge {
     display: flex;
     align-items: center;
@@ -167,7 +165,7 @@ body {
     50% { opacity: 0.5; transform: scale(0.8); }
 }
 
-/* ============ CHAT CONTENEDOR ============ */
+/*  CHAT CONTENEDOR  */
 .chat-contenedor {
     flex: 1;
     display: flex;
@@ -175,7 +173,7 @@ body {
     overflow: hidden;
 }
 
-/* ============ ÁREA DE MENSAJES ============ */
+/*  ÁREA DE MENSAJES  */
 .mensajes-area {
     flex: 1;
     overflow-y: auto;
@@ -200,7 +198,7 @@ body {
     border-radius: 2px;
 }
 
-/* ============ BIENVENIDA ============ */
+/*  BIENVENIDA  */
 .mensaje-bienvenida {
     text-align: center;
     padding: 40px 20px;
@@ -237,7 +235,7 @@ body {
     font-family: 'Share Tech Mono', monospace;
 }
 
-/* ============ SUGERENCIAS ============ */
+/*  SUGERENCIAS  */
 .sugerencias-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -284,7 +282,7 @@ body {
     color: var(--azul-neon);
 }
 
-/* ============ MENSAJES ============ */
+/*  MENSAJES  */
 .mensaje {
     display: flex;
     gap: 12px;
@@ -350,7 +348,7 @@ body {
     color: var(--blanco);
 }
 
-/* ============ INDICADOR CARGANDO ============ */
+/*  INDICADOR CARGANDO  */
 .cargando-indicador {
     display: flex;
     gap: 5px;
@@ -384,7 +382,7 @@ body {
     40% { transform: scale(1); opacity: 1; }
 }
 
-/* ============ INPUT AREA ============ */
+/*  INPUT AREA  */
 .input-area {
     padding: 16px 24px 20px;
     background: var(--negro-medio);
@@ -479,7 +477,7 @@ body {
     letter-spacing: 1px;
 }
 
-/* ============ RESPONSIVE ============ */
+/*  RESPONSIVE  */
 @media (max-width: 600px) {
     .sugerencias-grid {
         grid-template-columns: 1fr;

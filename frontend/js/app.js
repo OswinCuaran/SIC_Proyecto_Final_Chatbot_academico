@@ -1,15 +1,14 @@
-// ============================================
 // CHATBOT ACADÉMICO UNAL - JAVASCRIPT
-// ============================================
+
 
 const API_URL = 'http://localhost:8000';
 
-// ============ INICIALIZACIÓN ============
+//  INICIALIZACIÓN 
 document.addEventListener('DOMContentLoaded', () => {
     verificarEstado();
 });
 
-// ============ VERIFICAR ESTADO DEL SERVIDOR ============
+//  VERIFICAR ESTADO DEL SERVIDOR 
 async function verificarEstado() {
     const badge = document.getElementById('estadoBadge');
     const texto = document.getElementById('estadoTexto');
@@ -28,27 +27,23 @@ async function verificarEstado() {
     }
 }
 
-// ============ ENVIAR PREGUNTA ============
+//  ENVIAR PREGUNTA 
 async function enviarPregunta() {
     const input = document.getElementById('inputPregunta');
     const pregunta = input.value.trim();
 
     if (!pregunta) return;
 
-    // Ocultar bienvenida si existe
     const bienvenida = document.querySelector('.mensaje-bienvenida');
     if (bienvenida) bienvenida.remove();
 
-    // Mostrar mensaje del usuario
     agregarMensaje(pregunta, 'usuario');
     input.value = '';
     ajustarAltura(input);
 
-    // Deshabilitar botón
     const btn = document.getElementById('btnEnviar');
     btn.disabled = true;
 
-    // Mostrar indicador de carga
     const idCarga = mostrarCargando();
 
     try {
@@ -60,7 +55,6 @@ async function enviarPregunta() {
 
         const datos = await respuesta.json();
 
-        // Quitar indicador de carga
         quitarCargando(idCarga);
 
         if (respuesta.ok) {
@@ -78,7 +72,7 @@ async function enviarPregunta() {
     input.focus();
 }
 
-// ============ AGREGAR MENSAJE AL CHAT ============
+//  AGREGAR MENSAJE AL CHAT 
 function agregarMensaje(texto, tipo) {
     const area = document.getElementById('mensajesArea');
 
@@ -97,11 +91,10 @@ function agregarMensaje(texto, tipo) {
     mensaje.appendChild(burbuja);
     area.appendChild(mensaje);
 
-    // Scroll al final
     area.scrollTop = area.scrollHeight;
 }
 
-// ============ FORMATEAR TEXTO ============
+//  FORMATEAR TEXTO 
 function formatearTexto(texto) {
     return texto
         .replace(/\n\n/g, '</p><p>')
@@ -111,7 +104,7 @@ function formatearTexto(texto) {
         .replace(/^(.+)$/, '<p>$1</p>');
 }
 
-// ============ INDICADOR DE CARGA ============
+//  INDICADOR DE CARGA 
 function mostrarCargando() {
     const area = document.getElementById('mensajesArea');
     const id = 'carga_' + Date.now();
@@ -147,7 +140,7 @@ function quitarCargando(id) {
     if (elemento) elemento.remove();
 }
 
-// ============ ENVIAR SUGERENCIA ============
+//  ENVIAR SUGERENCIA 
 function enviarSugerencia(btn) {
     const texto = btn.textContent.trim().replace(/^[^\s]+\s/, '');
     const input = document.getElementById('inputPregunta');
@@ -155,7 +148,7 @@ function enviarSugerencia(btn) {
     enviarPregunta();
 }
 
-// ============ MANEJO DE TECLADO ============
+//  MANEJO DE TECLADO 
 function manejarTecla(event) {
     if (event.key === 'Enter' && !event.shiftKey) {
         event.preventDefault();
@@ -163,7 +156,7 @@ function manejarTecla(event) {
     }
 }
 
-// ============ AJUSTAR ALTURA TEXTAREA ============
+//  AJUSTAR ALTURA TEXTAREA 
 function ajustarAltura(textarea) {
     textarea.style.height = 'auto';
     textarea.style.height = Math.min(textarea.scrollHeight, 120) + 'px';

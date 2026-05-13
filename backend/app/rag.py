@@ -73,7 +73,7 @@ def buscar_contexto(pregunta, n_resultados=20):
         except:
             pass
 
-    # Buscar primero en JSON (materias y semestres) - más confiable
+    # Buscar primero en JSON materias y semestres - más confiable
     try:
         resultado_json = coleccion.query(
             query_embeddings=[embedding_pregunta],

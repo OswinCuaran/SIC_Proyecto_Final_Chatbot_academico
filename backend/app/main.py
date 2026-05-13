@@ -68,7 +68,7 @@ Pregunta del estudiante: {pregunta}"""
     else:
         return f"Error al consultar el modelo: {respuesta.status_code}"
 
-# ============ RUTAS DEL FRONTEND ============
+# RUTAS DEL FRONTEND 
 @app.route('/')
 def inicio():
     return send_from_directory(FRONTEND_PATH, 'index.html')
@@ -81,7 +81,7 @@ def css(archivo):
 def js(archivo):
     return send_from_directory(os.path.join(FRONTEND_PATH, 'js'), archivo)
 
-# ============ RUTAS DE LA API ============
+# RUTAS DE LA API DEL CHATBOT
 @app.route('/api/chat', methods=['POST'])
 def chat():
     """Endpoint principal del chatbot"""
