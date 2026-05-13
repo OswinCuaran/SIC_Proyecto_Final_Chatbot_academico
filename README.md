@@ -33,7 +33,7 @@ Asistente virtual conversacional para consultar información académica del prog
 
 ## Instalación y uso
 
-Consulta la guía completa en 👉 [GUIA_INSTALACION.md](GUIA_INSTALACION.md)
+Consulta la guía completa en [GUIA_INSTALACION.md](GUIA_INSTALACION.md)
 
 ---
 
