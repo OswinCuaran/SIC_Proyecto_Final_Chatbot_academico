@@ -32,14 +32,6 @@
     "tipologia": "FUND. OBLIGATORIA"
   },
   {
-    "codigo": "1000044",
-    "nombre": "Inglés I",
-    "semestre": 1,
-    "creditos": 3,
-    "prerequisitos": [],
-    "tipologia": "LENGUA EXTRANJERA"
-  },
-  {
     "codigo": "4200916",
     "nombre": "Programación Orientada a Objetos",
     "semestre": 2,
@@ -68,15 +60,15 @@
     "nombre": "Fundamentos de Economía",
     "semestre": 2,
     "creditos": 3,
-    "prerequisitos": [],
+    "prerequisitos": ["Introducción a la administración de sistemas informáticos"],
     "tipologia": "FUND. OBLIGATORIA"
   },
-  {
-    "codigo": "1000045",
-    "nombre": "Inglés II",
+    {
+    "codigo": "1000044",
+    "nombre": "Inglés I",
     "semestre": 2,
     "creditos": 3,
-    "prerequisitos": ["Inglés I"],
+    "prerequisitos": [],
     "tipologia": "LENGUA EXTRANJERA"
   },
   {
@@ -108,9 +100,7 @@
     "nombre": "Sistemas de Información",
     "semestre": 3,
     "creditos": 3,
-    "prerequisitos": [
-      "Introducción a la administración de sistemas informáticos"
-    ],
+    "prerequisitos": ["Introducción a la administración de sistemas informáticos"],
     "tipologia": "DISCIPLINAR OBLIGATORIA"
   },
   {
@@ -121,12 +111,12 @@
     "prerequisitos": [],
     "tipologia": "FUND. OBLIGATORIA"
   },
-  {
-    "codigo": "1000046",
-    "nombre": "Inglés III",
+    {
+    "codigo": "1000045",
+    "nombre": "Inglés II",
     "semestre": 3,
     "creditos": 3,
-    "prerequisitos": ["Inglés II"],
+    "prerequisitos": ["Inglés I"],
     "tipologia": "LENGUA EXTRANJERA"
   },
   {
@@ -169,12 +159,12 @@
     "prerequisitos": ["Álgebra lineal"],
     "tipologia": "FUND. OBLIGATORIA"
   },
-  {
-    "codigo": "1000047",
-    "nombre": "Inglés IV",
+    {
+    "codigo": "1000046",
+    "nombre": "Inglés III",
     "semestre": 4,
     "creditos": 3,
-    "prerequisitos": ["Inglés III"],
+    "prerequisitos": ["Inglés II"],
     "tipologia": "LENGUA EXTRANJERA"
   },
   {
@@ -204,6 +194,14 @@
     "prerequisitos": ["Contabilidad y Costos"],
     "tipologia": "FUND. OBLIGATORIA"
   },
+    {
+    "codigo": "1000047",
+    "nombre": "Inglés IV",
+    "semestre": 5,
+    "creditos": 3,
+    "prerequisitos": ["Inglés III"],
+    "tipologia": "LENGUA EXTRANJERA"
+  },
   {
     "codigo": "4100554",
     "nombre": "Ingeniería de Software II",
@@ -225,9 +223,7 @@
     "nombre": "Sistemas Inteligentes Computacionales",
     "semestre": 6,
     "creditos": 3,
-    "prerequisitos": [
-      "Haber aprobado 25 créditos (30%) del componente profesional."
-    ],
+    "prerequisitos": ["Haber aprobado 25 créditos (30%) del componente profesional."],
     "tipologia": "DISCIPLINAR OBLIGATORIA"
   },
   {
@@ -254,7 +250,7 @@
     "nombre": "Psicología Social",
     "semestre": 7,
     "creditos": 3,
-    "prerequisitos": [],
+    "prerequisitos": ["Haber aprobado 25 créditos (30%) del componente profesional"],
     "tipologia": "FUND. OBLIGATORIA"
   },
   {
@@ -321,9 +317,7 @@
     "nombre": "Legislación Tecnológica",
     "semestre": 9,
     "creditos": 3,
-    "prerequisitos": [
-      "Haber aprobado 25 créditos (30%) del componente profesional"
-    ],
+    "prerequisitos": ["Haber aprobado 25 créditos (30%) del componente profesional."],
     "tipologia": "DISCIPLINAR OBLIGATORIA"
   },
   {
@@ -332,8 +326,8 @@
     "semestre": 10,
     "creditos": 6,
     "prerequisitos": [
-      "Metodología de Investigación, Haber aprobado 63 (77%) créditos exigidos en el componente profesional"
-    ],
+      "Metodología de Investigación", 
+      "Haber aprobado 63 (77%) créditos exigidos en el componente profesional"],
     "tipologia": "TRABAJO DE GRADO"
   },
   {
@@ -341,9 +335,7 @@
     "nombre": "Práctica",
     "semestre": 10,
     "creditos": 7,
-    "prerequisitos": [
-      "aber aprobado 63 (77%) créditos exigidos en el componente profesional"
-    ],
+    "prerequisitos": ["Haber aprobado 63 (77%) créditos exigidos en el componente profesional."],
     "tipologia": "DISCIPLINAR OBLIGATORIA"
   },
   {
@@ -435,8 +427,8 @@
     "semestre": null,
     "creditos": 3,
     "prerequisitos": [
-      "Fundamentos de Redes de Datos y Programación con Teconologías Web"
-    ],
+      "Fundamentos de Redes de Datos", 
+      "Programación con Tecnologías Web"],
     "tipologia": "DISCIPLINAR OPTATIVA"
   },
   {

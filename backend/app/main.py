@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from dotenv import load_dotenv
 import os
@@ -8,7 +8,10 @@ from .rag import buscar_contexto, obtener_estado_coleccion
 # Cargar variables de entorno
 load_dotenv(os.path.join(os.path.dirname(__file__), '..', '.env'))
 
-app = Flask(__name__)
+# Ruta al frontend
+FRONTEND_PATH = os.path.join(os.path.dirname(__file__), '..', '..', 'frontend')
+
+app = Flask(__name__, static_folder=FRONTEND_PATH)
 CORS(app)
 
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
@@ -20,16 +23,21 @@ def consultar_llm(pregunta, contexto):
     prompt_sistema = """Eres un asistente académico virtual de la Universidad Nacional de Colombia, 
 sede Manizales, para el programa de Administración de Sistemas Informáticos.
 
+REGLAS ESTRICTAS QUE DEBES SEGUIR:
+1. Responde ÚNICAMENTE con información del contexto proporcionado.
+2. Si la pregunta es sobre una materia específica, busca SOLO la información de ESA materia.
+3. Si no encuentras información específica de la materia preguntada, di exactamente: "No encontré información específica sobre esa materia en mi base de datos."
+4. NUNCA mezcles información de una materia con otra.
+5. Si preguntan por horarios específicos de clases (días, horas exactas), responde que esa información no está disponible en tu base de datos y recomienda consultar SIA o la secretaría del programa.
+6. Si preguntan por profesores específicos, responde que esa información no está disponible.
+7. Responde siempre en español de forma clara y organizada.
+
 Tu función es responder preguntas sobre:
 - Materias y asignaturas del programa
 - Contenidos y descripciones de cada materia
 - Prerrequisitos de las materias
 - Semestres y créditos
-- Malla curricular
-
-Usa únicamente la información del contexto proporcionado para responder.
-Si no encuentras la información en el contexto, dilo amablemente.
-Responde siempre en español de forma clara y organizada."""
+- Malla curricular"""
 
     prompt_usuario = f"""Contexto académico:
 {contexto}
@@ -60,6 +68,20 @@ Pregunta del estudiante: {pregunta}"""
     else:
         return f"Error al consultar el modelo: {respuesta.status_code}"
 
+# ============ RUTAS DEL FRONTEND ============
+@app.route('/')
+def inicio():
+    return send_from_directory(FRONTEND_PATH, 'index.html')
+
+@app.route('/css/<path:archivo>')
+def css(archivo):
+    return send_from_directory(os.path.join(FRONTEND_PATH, 'css'), archivo)
+
+@app.route('/js/<path:archivo>')
+def js(archivo):
+    return send_from_directory(os.path.join(FRONTEND_PATH, 'js'), archivo)
+
+# ============ RUTAS DE LA API ============
 @app.route('/api/chat', methods=['POST'])
 def chat():
     """Endpoint principal del chatbot"""
@@ -73,10 +95,7 @@ def chat():
     if not pregunta:
         return jsonify({'error': 'La pregunta no puede estar vacía'}), 400
     
-    # Buscar contexto relevante
     contexto = buscar_contexto(pregunta)
-    
-    # Consultar al LLM
     respuesta = consultar_llm(pregunta, contexto)
     
     return jsonify({
@@ -93,10 +112,6 @@ def estado():
         'documentos_cargados': total_docs,
         'modelo': OPENROUTER_MODEL
     })
-
-@app.route('/', methods=['GET'])
-def inicio():
-    return jsonify({'mensaje': 'Chatbot Académico UNAL - API activa'})
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000)
