@@ -53,24 +53,40 @@ El sistema utiliza la técnica RAG que combina dos componentes principales:
 
 ## 4. Arquitectura del Sistema
 
-**Flujo general:**
+    ┌─────────────────────────────────────────────────────┐
+    │                    USUARIO                          │
+    │              (Navegador Web)                        │
+    └─────────────────────┬───────────────────────────────┘
+    │ HTTP Request
+    ▼
+    ┌─────────────────────────────────────────────────────┐
+    │                  FRONTEND                           │
+    │         HTML + CSS + JavaScript                     │
+    │    (Interfaz conversacional estilo ciberpunk)       │
+    └─────────────────────┬───────────────────────────────┘
+    │ POST /api/chat
+    ▼
+    ┌─────────────────────────────────────────────────────┐
+    │                  BACKEND (Flask)                    │
+    │                                                     │
+    │  ┌──────────────┐      ┌────────────────────────┐   │
+    │  │   RAG Engine  │     │    OpenRouter API      │   │
+    │  │               │     │   (GPT-3.5-turbo)      │   │
+    │  │  ChromaDB     │───▶│                        │   │
+    │  │  Embeddings   │     │  Generación respuesta  │   │
+    │  └──────────────┘      └────────────────────────┘   │
+    └─────────────────────────────────────────────────────┘
+    │
+    ▼
+    ┌─────────────────────────────────────────────────────┐
+    │              BASE DE CONOCIMIENTO                   │
+    │                                                     │
+    │  malla_curricular.json  │  asignaturas.csv          │
+    │  Contenido_asignaturas.pdf                          │
+    │                                                     │
+    │  Total: 459 documentos vectorizados                 │
+    └─────────────────────────────────────────────────────┘
 
-USUARIO (Navegador Web)
-→ FRONTEND (HTML + CSS + JavaScript)
-→ BACKEND Flask - POST /api/chat
-→ RAG Engine + ChromaDB (Embeddings)
-→ OpenRouter API (GPT-3.5-turbo)
-→ Respuesta al usuario
-
-### Componentes principales
-
-| Capa | Tecnología | Función |
-|------|-----------|---------|
-| Frontend | HTML + CSS + JS | Interfaz conversacional ciberpunk |
-| Backend | Flask (Python) | API REST y orquestación |
-| RAG Engine | ChromaDB + Sentence Transformers | Búsqueda semántica |
-| LLM | GPT-3.5-turbo via OpenRouter | Generación de respuestas |
-| Base de conocimiento | JSON + CSV + PDF | Fuente de información académica |
 ---
 
 ## 5. Tecnologías Utilizadas
