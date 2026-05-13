@@ -1,11 +1,6 @@
 # Guía de Instalación
 ## Chatbot Académico - UNAL Manizales
 
-### Integrantes
-- Oswin Olsman Cuaran
-- Edwin Hernan Chenas
-- Santiago Felipe Quitiaquez
-
 ---
 
 ## Requisitos Previos
@@ -63,7 +58,7 @@ Crea un archivo llamado `.env` dentro de la carpeta `backend/` con el siguiente 
 OPENROUTER_API_KEY=tu_api_key_aqui
 OPENROUTER_MODEL=openai/gpt-3.5-turbo
 
-> 📌 Para obtener una API key gratuita ve a https://openrouter.ai y crea una cuenta.
+> Para obtener una API key gratuita ve a https://openrouter.ai y crea una cuenta.
 
 ---
 
@@ -133,31 +128,31 @@ python cargar_chroma.py
 
 ## 9. Estructura del Proyecto
 
-SIC_Proyecto_Final_Chatbot_academico/
-├── backend/
-│   ├── app/
-│   │   ├── init.py
-│   │   ├── main.py          # Servidor Flask y rutas API
-│   │   └── rag.py           # Motor de búsqueda semántica
-│   ├── data/
-│   │   ├── malla_curricular.json
-│   │   ├── asignaturas.csv
-│   │   └── Contenido_asignaturas.pdf
-│   ├── chroma_db/           # Base de datos vectorial (se genera automáticamente)
-│   ├── cargar_chroma.py     # Carga documentos en ChromaDB
-│   ├── run.py               # Punto de entrada del sistema
-│   ├── requirements.txt     # Dependencias de Python
-│   └── .env                 # Variables de entorno (crear manualmente)
-├── frontend/
-│   ├── index.html           # Interfaz principal
-│   ├── css/
-│   │   └── style.css        # Estilos ciberpunk
-│   └── js/
-│       └── app.js           # Lógica del frontend
-├── ANALISIS_DISEÑO.md       # Documento de análisis y diseño
-├── GUIA_INSTALACION.md      # Este archivo
-├── .gitignore
-└── README.md
+    SIC_Proyecto_Final_Chatbot_academico/
+    ├── backend/
+    │   ├── app/
+    │   │   ├── init.py
+    │   │   ├── main.py          # Servidor Flask y rutas API
+    │   │   └── rag.py           # Motor de búsqueda semántica
+    │   ├── data/
+    │   │   ├── malla_curricular.json
+    │   │   ├── asignaturas.csv
+    │   │   └── Contenido_asignaturas.pdf
+    │   ├── chroma_db/           # Base de datos vectorial (se genera automáticamente)
+    │   ├── cargar_chroma.py     # Carga documentos en ChromaDB
+    │   ├── run.py               # Punto de entrada del sistema
+    │   ├── requirements.txt     # Dependencias de Python
+    │   └── .env                 # Variables de entorno (crear manualmente)
+    ├── frontend/
+    │   ├── index.html           # Interfaz principal
+    │   ├── css/
+    │   │   └── style.css        # Estilos ciberpunk
+    │   └── js/
+    │       └── app.js           # Lógica del frontend
+    ├── Analisis_Diseño.md       # Documento de análisis y diseño
+    ├── Guia_Instalacion.md      # Este archivo
+    ├── .gitignore
+    └── README.md
 
 ---
 

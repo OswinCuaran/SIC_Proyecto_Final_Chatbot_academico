@@ -53,40 +53,24 @@ El sistema utiliza la técnica RAG que combina dos componentes principales:
 
 ## 4. Arquitectura del Sistema
 
-┌─────────────────────────────────────────────────────┐
-│                    USUARIO                          │
-│              (Navegador Web)                        │
-└─────────────────────┬───────────────────────────────┘
-│ HTTP Request
-▼
-┌─────────────────────────────────────────────────────┐
-│                  FRONTEND                           │
-│         HTML + CSS + JavaScript                     │
-│    (Interfaz conversacional estilo ciberpunk)       │
-└─────────────────────┬───────────────────────────────┘
-│ POST /api/chat
-▼
-┌─────────────────────────────────────────────────────┐
-│                  BACKEND (Flask)                    │
-│                                                     │
-│  ┌──────────────┐      ┌────────────────────────┐   │
-│  │   RAG Engine │      │    OpenRouter API      │   │
-│  │              │      │   (GPT-3.5-turbo)      │   │
-│  │  ChromaDB    │────▶│                        │   │
-│  │  Embeddings  │      │  Generación respuesta  │   │
-│  └──────────────┘      └────────────────────────┘   │
-└─────────────────────────────────────────────────────┘
-│
-▼
-┌─────────────────────────────────────────────────────┐
-│              BASE DE CONOCIMIENTO                   │
-│                                                     │
-│  malla_curricular.json  │  asignaturas.csv          │
-│  Contenido_asignaturas.pdf                          │
-│                                                     │
-│  Total: 459 documentos vectorizados                 │
-└─────────────────────────────────────────────────────┘
+**Flujo general:**
 
+USUARIO (Navegador Web)
+→ FRONTEND (HTML + CSS + JavaScript)
+→ BACKEND Flask - POST /api/chat
+→ RAG Engine + ChromaDB (Embeddings)
+→ OpenRouter API (GPT-3.5-turbo)
+→ Respuesta al usuario
+
+### Componentes principales
+
+| Capa | Tecnología | Función |
+|------|-----------|---------|
+| Frontend | HTML + CSS + JS | Interfaz conversacional ciberpunk |
+| Backend | Flask (Python) | API REST y orquestación |
+| RAG Engine | ChromaDB + Sentence Transformers | Búsqueda semántica |
+| LLM | GPT-3.5-turbo via OpenRouter | Generación de respuestas |
+| Base de conocimiento | JSON + CSV + PDF | Fuente de información académica |
 ---
 
 ## 5. Tecnologías Utilizadas
@@ -122,31 +106,31 @@ El sistema utiliza la técnica RAG que combina dos componentes principales:
 
 ### 6.2 Estructura del Proyecto
 
-SIC_Proyecto_Final_Chatbot_academico/
-├── backend/
-│   ├── app/
-│   │   ├── init.py
-│   │   ├── main.py          # Servidor Flask y rutas API
-│   │   └── rag.py           # Motor de búsqueda semántica
-│   ├── data/
-│   │   ├── malla_curricular.json
-│   │   ├── asignaturas.csv
-│   │   └── Contenido_asignaturas.pdf
-│   ├── chroma_db/           # Base de datos vectorial
-│   ├── cargar_chroma.py     # Carga documentos en ChromaDB
-│   ├── run.py               # Punto de entrada del sistema
-│   ├── requirements.txt
-│   └── .env
-├── frontend/
-│   ├── index.html
-│   ├── css/
-│   │   └── style.css
-│   └── js/
-│       └── app.js
-├── ANALISIS_DISEÑO.md
-├── GUIA_INSTALACION.md
-├── .gitignore
-└── README.md
+    SIC_Proyecto_Final_Chatbot_academico/
+    ├── backend/
+    │   ├── app/
+    │   │   ├── init.py
+    │   │   ├── main.py          # Servidor Flask y rutas API
+    │   │   └── rag.py           # Motor de búsqueda semántica
+    │   ├── data/
+    │   │   ├── malla_curricular.json
+    │   │   ├── asignaturas.csv
+    │   │   └── Contenido_asignaturas.pdf
+    │   ├── chroma_db/           # Base de datos vectorial
+    │   ├── cargar_chroma.py     # Carga documentos en ChromaDB
+    │   ├── run.py               # Punto de entrada del sistema
+    │   ├── requirements.txt
+    │   └── .env
+    ├── frontend/
+    │   ├── index.html
+    │   ├── css/
+    │   │   └── style.css
+    │   └── js/
+    │       └── app.js
+    ├── Analisis_Diseño.md     
+    ├── Guia_Instalacion.md     
+    ├── .gitignore
+    └── README.md
 
 ### 6.3 Endpoints de la API
 
