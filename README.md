@@ -33,14 +33,14 @@ Asistente virtual conversacional para consultar información académica del prog
 
 ## Instalación y uso
 
-Consulta la guía completa en [GUIA_INSTALACION.md](GUIA_INSTALACION.md)
+Consulta la guía completa en [Guia_Instalacion.md](Guia_Instalacion.md)
 
 ---
 
 ## Documentación
 
-- [Análisis y Diseño del Sistema](ANALISIS_DISEÑO.md)
-- [Guía de Instalación](GUIA_INSTALACION.md)
+- [Análisis y Diseño del Sistema](Analisis_Diseño.md)
+- [Guía de Instalación](Guia_Instalacion.md)
 
 ---
 
