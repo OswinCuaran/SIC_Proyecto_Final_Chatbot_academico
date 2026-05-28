@@ -1,0 +1,7 @@
+flask
+flask-cors
+chromadb
+langchain
+langchain-community
+pypdf
+python-dotenv
